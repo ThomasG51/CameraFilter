@@ -13,6 +13,10 @@
 		7ED41BB82970426800EA2102 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ED41BB62970426800EA2102 /* Main.storyboard */; };
 		7ED41BBA2970426800EA2102 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ED41BB92970426800EA2102 /* Assets.xcassets */; };
 		7ED41BBD2970426800EA2102 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ED41BBB2970426800EA2102 /* LaunchScreen.storyboard */; };
+		7ED41BC62970428100EA2102 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 7ED41BC52970428100EA2102 /* RxCocoa */; };
+		7ED41BC82970428100EA2102 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7ED41BC72970428100EA2102 /* RxSwift */; };
+		7ED41BCA2970434800EA2102 /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED41BC92970434800EA2102 /* PhotoCollectionViewController.swift */; };
+		7EF05B6E29705100002EFAD1 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF05B6D29705100002EFAD1 /* PhotoCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,8 @@
 		7ED41BB92970426800EA2102 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7ED41BBC2970426800EA2102 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7ED41BBE2970426800EA2102 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7ED41BC92970434800EA2102 /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
+		7EF05B6D29705100002EFAD1 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +37,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ED41BC82970428100EA2102 /* RxSwift in Frameworks */,
+				7ED41BC62970428100EA2102 /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,13 +66,39 @@
 			children = (
 				7ED41BB02970426800EA2102 /* AppDelegate.swift */,
 				7ED41BB22970426800EA2102 /* SceneDelegate.swift */,
-				7ED41BB42970426800EA2102 /* ViewController.swift */,
-				7ED41BB62970426800EA2102 /* Main.storyboard */,
 				7ED41BB92970426800EA2102 /* Assets.xcassets */,
-				7ED41BBB2970426800EA2102 /* LaunchScreen.storyboard */,
 				7ED41BBE2970426800EA2102 /* Info.plist */,
+				7EF05B6B29704F0E002EFAD1 /* View */,
+				7EF05B6A29704EFF002EFAD1 /* Controller */,
 			);
 			path = CameraFilter;
+			sourceTree = "<group>";
+		};
+		7EF05B6A29704EFF002EFAD1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7ED41BB42970426800EA2102 /* ViewController.swift */,
+				7ED41BC92970434800EA2102 /* PhotoCollectionViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7EF05B6B29704F0E002EFAD1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7ED41BBB2970426800EA2102 /* LaunchScreen.storyboard */,
+				7ED41BB62970426800EA2102 /* Main.storyboard */,
+				7EF05B6C29704F1D002EFAD1 /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7EF05B6C29704F1D002EFAD1 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7EF05B6D29705100002EFAD1 /* PhotoCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +117,10 @@
 			dependencies = (
 			);
 			name = CameraFilter;
+			packageProductDependencies = (
+				7ED41BC52970428100EA2102 /* RxCocoa */,
+				7ED41BC72970428100EA2102 /* RxSwift */,
+			);
 			productName = CameraFilter;
 			productReference = 7ED41BAD2970426800EA2102 /* CameraFilter.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +149,9 @@
 				Base,
 			);
 			mainGroup = 7ED41BA42970426800EA2102;
+			packageReferences = (
+				7ED41BC42970428100EA2102 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = 7ED41BAE2970426800EA2102 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -139,8 +180,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7ED41BB52970426800EA2102 /* ViewController.swift in Sources */,
+				7EF05B6E29705100002EFAD1 /* PhotoCollectionViewCell.swift in Sources */,
 				7ED41BB12970426800EA2102 /* AppDelegate.swift in Sources */,
 				7ED41BB32970426800EA2102 /* SceneDelegate.swift in Sources */,
+				7ED41BCA2970434800EA2102 /* PhotoCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +333,7 @@
 				DEVELOPMENT_TEAM = 5U782822RV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CameraFilter/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Camera filter requires acces to your photo library";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -318,6 +362,7 @@
 				DEVELOPMENT_TEAM = 5U782822RV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CameraFilter/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Camera filter requires acces to your photo library";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -358,6 +403,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7ED41BC42970428100EA2102 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7ED41BC52970428100EA2102 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7ED41BC42970428100EA2102 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		7ED41BC72970428100EA2102 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7ED41BC42970428100EA2102 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7ED41BA52970426800EA2102 /* Project object */;
 }
