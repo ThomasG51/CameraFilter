@@ -6,10 +6,16 @@
 //
 
 import Photos
+import RxSwift
 import UIKit
 
 class PhotoCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     // MARK: - Property
+    
+    private let selectedPhotoSubject = PublishSubject<UIImage>()
+    var selectedPhoto: Observable<UIImage> {
+        return selectedPhotoSubject.asObservable()
+    }
     
     private let cellIdentifier = "PhotoCellIdentifier"
     private var images = [PHAsset]()
@@ -57,6 +63,23 @@ class PhotoCollectionViewController: UICollectionViewController, UICollectionVie
         return 0
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedAsset = self.images[indexPath.row]
+        PHImageManager.default().requestImage(for: selectedAsset, targetSize: CGSize(width: view.frame.size.width, height: view.frame.size.height), contentMode: .aspectFit, options: nil) { [weak self] image, info in
+                    
+            guard let info = info else { return }
+                    
+            let isDegradedImage = info["PHImageResultIsDegradedKey"] as! Bool
+            
+            if !isDegradedImage {
+                if let image = image {
+                    self?.selectedPhotoSubject.onNext(image)
+                    self?.dismiss(animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
     // MARK: - Private Function
 
     private func populatePhotos() {
@@ -66,7 +89,9 @@ class PhotoCollectionViewController: UICollectionViewController, UICollectionVie
                 assets.enumerateObjects { object, _, _ in
                     self?.images.append(object)
                 }
+                
                 self?.images.reverse()
+                
                 DispatchQueue.main.async { [weak self] in
                     self?.collectionView.reloadData()
                 }
