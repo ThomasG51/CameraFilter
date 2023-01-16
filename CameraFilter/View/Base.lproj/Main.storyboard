@@ -19,17 +19,26 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cS1-vI-tPS">
                                 <rect key="frame" x="0.0" y="155" width="393" height="608"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="608" id="FBU-e2-Ywz"/>
+                                </constraints>
                             </imageView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ju3-2e-Rj8">
                                 <rect key="frame" x="141.66666666666666" y="773" width="110" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="NQX-29-YWU"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Apply Filter"/>
+                                <connections>
+                                    <action selector="applyFilterButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xvh-Th-xlw"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Ju3-2e-Rj8" firstAttribute="top" secondItem="cS1-vI-tPS" secondAttribute="bottom" constant="10" id="IZ9-et-1XZ"/>
+                            <constraint firstItem="Ju3-2e-Rj8" firstAttribute="top" relation="greaterThanOrEqual" secondItem="cS1-vI-tPS" secondAttribute="bottom" constant="10" id="IZ9-et-1XZ"/>
                             <constraint firstItem="cS1-vI-tPS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Q1C-aX-WqU"/>
                             <constraint firstItem="Ju3-2e-Rj8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QbG-7h-FNC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cS1-vI-tPS" secondAttribute="trailing" id="cTY-g5-TZ7"/>
@@ -45,6 +54,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="applyFilterButton" destination="Ju3-2e-Rj8" id="eSZ-M8-d9A"/>
                         <outlet property="photoImageView" destination="cS1-vI-tPS" id="gTS-fr-nuv"/>
                     </connections>
                 </viewController>

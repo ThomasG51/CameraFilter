@@ -12,11 +12,13 @@ class ViewController: UIViewController {
     // MARK: - Property
 
     let disposeBag = DisposeBag()
+    let filterService = FilterService()
     
     // MARK: - IBOutlet
 
     @IBOutlet var photoImageView: UIImageView!
-    
+    @IBOutlet var applyFilterButton: UIButton!
+
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -25,6 +27,16 @@ class ViewController: UIViewController {
     
     // MARK: - IBAction
     
+    @IBAction func applyFilterButtonTapped(_ sender: Any) {
+        guard let sourceImage = photoImageView.image else { return }
+        
+        filterService.applyFilter(to: sourceImage) { filteredImage in
+            DispatchQueue.main.async { [weak self] in
+                self?.photoImageView.image = filteredImage
+            }
+        }
+    }
+
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -35,13 +47,20 @@ class ViewController: UIViewController {
         }
         
         photosController.selectedPhoto.subscribe(onNext: { [weak self] photo in
-            self?.photoImageView.image = photo
+            DispatchQueue.main.async {
+                self?.updateUI(with: photo)
+            }
         }).disposed(by: disposeBag)
     }
     
     // MARK: - Function
     
     // MARK: - Private Function
+    
+    private func updateUI(with photo: UIImage) {
+        photoImageView.image = photo
+        applyFilterButton.isHidden = false
+    }
     
     // MARK: - Objc Function
 }

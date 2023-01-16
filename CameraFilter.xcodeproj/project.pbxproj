@@ -17,6 +17,7 @@
 		7ED41BC82970428100EA2102 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7ED41BC72970428100EA2102 /* RxSwift */; };
 		7ED41BCA2970434800EA2102 /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED41BC92970434800EA2102 /* PhotoCollectionViewController.swift */; };
 		7EF05B6E29705100002EFAD1 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF05B6D29705100002EFAD1 /* PhotoCollectionViewCell.swift */; };
+		7EF05B722975C135002EFAD1 /* FilterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF05B712975C135002EFAD1 /* FilterService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		7ED41BBE2970426800EA2102 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7ED41BC92970434800EA2102 /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
 		7EF05B6D29705100002EFAD1 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		7EF05B712975C135002EFAD1 /* FilterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				7ED41BBE2970426800EA2102 /* Info.plist */,
 				7EF05B6B29704F0E002EFAD1 /* View */,
 				7EF05B6A29704EFF002EFAD1 /* Controller */,
+				7EF05B6F2975C0F1002EFAD1 /* Service */,
 			);
 			path = CameraFilter;
 			sourceTree = "<group>";
@@ -99,6 +102,14 @@
 				7EF05B6D29705100002EFAD1 /* PhotoCollectionViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		7EF05B6F2975C0F1002EFAD1 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				7EF05B712975C135002EFAD1 /* FilterService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,6 +193,7 @@
 				7ED41BB52970426800EA2102 /* ViewController.swift in Sources */,
 				7EF05B6E29705100002EFAD1 /* PhotoCollectionViewCell.swift in Sources */,
 				7ED41BB12970426800EA2102 /* AppDelegate.swift in Sources */,
+				7EF05B722975C135002EFAD1 /* FilterService.swift in Sources */,
 				7ED41BB32970426800EA2102 /* SceneDelegate.swift in Sources */,
 				7ED41BCA2970434800EA2102 /* PhotoCollectionViewController.swift in Sources */,
 			);
