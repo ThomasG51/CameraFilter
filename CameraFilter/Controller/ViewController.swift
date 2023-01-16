@@ -30,11 +30,12 @@ class ViewController: UIViewController {
     @IBAction func applyFilterButtonTapped(_ sender: Any) {
         guard let sourceImage = photoImageView.image else { return }
         
-        filterService.applyFilter(to: sourceImage) { filteredImage in
-            DispatchQueue.main.async { [weak self] in
-                self?.photoImageView.image = filteredImage
-            }
-        }
+        filterService.applyFilter(to: sourceImage)
+            .subscribe { filteredImage in
+                DispatchQueue.main.async { [weak self] in
+                    self?.photoImageView.image = filteredImage
+                }
+            }.disposed(by: disposeBag)
     }
 
     // MARK: - Navigation
